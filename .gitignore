@@ -5,3 +5,5 @@ __pycache__/
 test_env/
 env/
 venv/
+/Features/*.npy
+/Models/*.joblib
