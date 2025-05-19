@@ -19,7 +19,7 @@ Once Conda is installed:
 conda env create -f environment.yml
 
 # Activate the environment
-conda activate cits4402_project_env
+conda activate cits4402_project_submission_env
 
 # Run the GUI
 python GUI.py
