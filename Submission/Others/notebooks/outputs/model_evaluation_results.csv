@@ -1,0 +1,13 @@
+model,dataset,accuracy,auc,model_nickname
+_PETA_h250p_nh250patches_c8_b16_n9_s1_default_180,perfect_200,0.98,0.99945,PETA 250p:250patches
+_PETA_h250p_nh250patches_c8_b16_n9_s1_default_180,unperfect_200,0.875,0.9202499999999999,PETA 250p:250patches
+_PETA_INRIA_h250u:h250p_nh500pp_c8_b16_n9_s1_default_180,perfect_200,0.875,0.9688249999999999,PETA+INRIA 250u:250p 500pp
+_PETA_INRIA_h250u:h250p_nh500pp_c8_b16_n9_s1_default_180,unperfect_200,0.82,0.9067750000000001,PETA+INRIA 250u:250p 500pp
+_PETA_INRIA_h500p_nh500pp_c8_b16_n9_s1_default_180,perfect_200,0.995,0.9999,PETA+INRIA 500p 500pp
+_PETA_INRIA_h500p_nh500pp_c8_b16_n9_s1_default_180,unperfect_200,0.8725,0.90985,PETA+INRIA 500p 500pp
+_PETA_INRIA_h250p_nh250pp_c8_b16_n9_s1_default_180,perfect_200,0.995,0.9998,PETA+INRIA 250p 250pp
+_PETA_INRIA_h250p_nh250pp_c8_b16_n9_s1_default_180,unperfect_200,0.8775,0.9228500000000001,PETA+INRIA 250p 250pp
+_PETA_INRIA_h800p:h200u_nh800pp:nh200pat_c8_b16_n9_s1_default_180,perfect_200,0.915,0.9880500000000001,PETA+INRIA 800p:200u 800pp:200patches
+_PETA_INRIA_h800p:h200u_nh800pp:nh200pat_c8_b16_n9_s1_default_180,unperfect_200,0.8375,0.91825,PETA+INRIA 800p:200u 800pp:200patches
+_PETA_INRIA_h800p:h200u_nh1000pp_c8_b16_n9_s1_default_180,perfect_200,0.93,0.9896,PETA+INRIA 800p:200u 1000pp
+_PETA_INRIA_h800p:h200u_nh1000pp_c8_b16_n9_s1_default_180,unperfect_200,0.845,0.91145,PETA+INRIA 800p:200u 1000pp

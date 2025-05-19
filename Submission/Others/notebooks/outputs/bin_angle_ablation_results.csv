@@ -1,0 +1,10 @@
+model,accuracy,auc
+Bins18/Angle360,0.8850,0.9262
+Bins12/Angle180,0.8825,0.9226
+Bins9/Angle180,0.8800,0.9247
+Bins12/Angle360,0.8800,0.9195
+Bins6/Angle180,0.8775,0.9156
+Bins3/Angle180,0.8625,0.8932
+Bins6/Angle360,0.8600,0.9022
+Bins8/Angle360,0.8600,0.9011
+Bins4/Angle180,0.8500,0.8912
