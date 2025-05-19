@@ -8,6 +8,12 @@ We've developed a system that extracts HOG features from images and uses an SVM 
 
 ## Setup
 
+> ❗ **If you don’t have Conda installed**, download and install **Miniconda** (recommended) from:  
+> https://docs.conda.io/en/latest/miniconda.html  
+> This gives you access to `conda` without the full Anaconda package.
+
+Once Conda is installed:
+
 ```bash
 # Create the Conda environment
 conda env create -f environment.yml
