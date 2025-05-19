@@ -115,6 +115,7 @@ Due to storage limitations, the `Features/` and `Models/` directories are empty 
    - Help identify optimal parameters
 
 ## Repository Structure
+```
 ├── Datasets/
 │   ├── Raw/ # Source data
 │   │   ├── original/ # INRIA and PETA source datasets
@@ -152,6 +153,7 @@ Due to storage limitations, the `Features/` and `Models/` directories are empty 
 │   ├── outputs/ # Generated analysis plots and results
 │   └── test_all_models.ipynb # Model evaluation - finding the best training set to uses for Final Model
 └── environment.yml # Conda environment configuration
+```
 
 ## Contributors
 
