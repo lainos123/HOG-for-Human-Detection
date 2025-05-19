@@ -116,32 +116,32 @@ Due to storage limitations, the `Features/` and `Models/` directories are empty 
 
 ## Repository Structure
 ├── Datasets/
-│ ├── Raw/ # Source data
-│ │ ├── original/ # INRIA and PETA source datasets
-│ │ └── created/ # Processed subsets used for for test and train sets
-│ ├── Test/ # Testing datasets of varying quality and size
-│ └── Train/ # Training datasets with different compositions
+│   ├── Raw/ # Source data
+│   │   ├── original/ # INRIA and PETA source datasets
+│   │   └── created/ # Processed subsets used for for test and train sets
+│   ├── Test/ # Testing datasets of varying quality and size
+│   └── Train/ # Training datasets with different compositions
 ├── Features/ # Directory for pre-extracted HOG features (.npy files) - empty, generate using extract_HOG.py
 ├── Models/ # Directory for trained SVM classifier models (.joblib files) - empty, generate using train_SVM.py
 ├── Submission/ # Final submission folder with standalone application
-│ ├── GUI.py # Graphical user interface
-│ ├── Others/ # Supporting files
-│ │ └── Scripts/ # Core functionality scripts
-│ │   ├── ablation.py # HOG parameter ablation study script
-│ │   ├── create_non_human_data.py # INRIA_non_human_all dataset creation
-│ │   ├── create_test_data.py # Test dataset creation
-│ │   ├── create_train_data.py # Training dataset creation
-│ │   ├── evaluate_any_model.py # Testing an individaul model of choice
-│ │   ├── evaluate_final_model.py # Testing the final model
-│ │   ├── extract_HOG.py # HOG feature extraction
-│ │   ├── save_predictions.py # Save prediction results from GUI
-│ │   ├── test_image.py # Single image testing
-│ │   └── train_SVM.py # SVM model training
-│ ├── Testing Images/ # Sample images for GUI testing
-│ └── Report.ipynb # Submitted Report
+│   ├── GUI.py # Graphical user interface
+│   ├── Others/ # Supporting files
+│   │   └── Scripts/ # Core functionality scripts
+│   │       ├── ablation.py # HOG parameter ablation study script
+│   │       ├── create_non_human_data.py # INRIA_non_human_all dataset creation
+│   │       ├── create_test_data.py # Test dataset creation
+│   │       ├── create_train_data.py # Training dataset creation
+│   │       ├── evaluate_any_model.py # Testing an individaul model of choice
+│   │       ├── evaluate_final_model.py # Testing the final model
+│   │       ├── extract_HOG.py # HOG feature extraction
+│   │       ├── save_predictions.py # Save prediction results from GUI
+│   │       ├── test_image.py # Single image testing
+│   │       └── train_SVM.py # SVM model training
+│   ├── Testing Images/ # Sample images for GUI testing
+│   └── Report.ipynb # Submitted Report
 ├── docs/
-│ ├── DATA_OVERVIEW.md # Description of dataset organisation
-│ └── MODEL_NAME_CONVENTION.md # Explanation of model naming scheme
+│   ├── DATA_OVERVIEW.md # Description of dataset organisation
+│   └── MODEL_NAME_CONVENTION.md # Explanation of model naming scheme
 ├── notebooks/
 │   ├── ablation.ipynb # HOG parameter ablation studies - explanation of the script
 │   ├── archive/ # Historical development notebooks
