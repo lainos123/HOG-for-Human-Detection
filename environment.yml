@@ -15,4 +15,4 @@ dependencies:
   - pandas
   - openpyxl
   - ipykernel
-prefix: /opt/anaconda3/envs/cits4402
+prefix: /opt/anaconda3/envs/cits4402_project_env
