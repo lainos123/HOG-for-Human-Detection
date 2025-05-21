@@ -84,39 +84,10 @@ def train_svm_with_progress(X_train, y_train, C=1.0, max_iter=10000, seed=42):
     return svm_classifier
 
 def save_model(model, model_path, is_final_model=False):
-    """Save the model, with special handling for final model"""
-    # Save the model directly
+    """Save the model directly without Git LFS handling"""
     print(f"Saving model to: {model_path}")
     joblib.dump(model, model_path)
-    
-    # Create LFS pointer for non-final models if git is available
-    if not is_final_model:
-        try:
-            # Check if git is available
-            import subprocess
-            result = subprocess.run(['git', '--version'], capture_output=True, text=True)
-            if result.returncode == 0:
-                print("Git is available, preparing for LFS...")
-                # Create Git LFS pointer file
-                lfs_pointer = f"""version https://git-lfs.github.com/spec/v1
-oid sha256:{os.urandom(16).hex()}
-size {os.path.getsize(model_path)}
-"""
-                # Backup the real model
-                backup_path = str(model_path) + ".backup"
-                shutil.copy(model_path, backup_path)
-                
-                # Write the LFS pointer
-                with open(model_path, 'w') as f:
-                    f.write(lfs_pointer)
-                
-                print(f"Created LFS pointer for {model_path}")
-                print(f"Real model backed up to {backup_path}")
-        except Exception as e:
-            print(f"Error preparing for LFS: {e}")
-            print("Model was saved directly without LFS preparation.")
-    else:
-        print("This is the final model - saved directly without LFS preparation.")
+    print(f"Model saved successfully to {model_path}")
 
 def train_final_model(base_path, args):
     """Train model using features from Final Model directory"""
