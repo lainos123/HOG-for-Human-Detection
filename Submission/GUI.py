@@ -165,28 +165,46 @@ class HumanDetectionGUI:
             'angle': 180
         }
         
-        # Check if model name contains custom parameters
-        if '_c' in model_name and '_b' in model_name and '_n' in model_name:
-            try:
-                # Extract parameters from filename
-                # Remove the 'svm_hog_classifier_' prefix if it exists
-                parts = model_name.replace('svm_hog_classifier_', '').split('_')
-                for part in parts:
-                    if part.startswith('c'):
-                        params['cell_size'] = int(part[1:])
-                    elif part.startswith('b'):
-                        params['block_size'] = int(part[1:])
-                    elif part.startswith('n'):
-                        params['num_bins'] = int(part[1:])
-                    elif part.startswith('s'):
-                        params['block_stride'] = int(part[1:])
-                    elif part in ['default', 'Sobel', 'Prewitt']:
-                        params['filter_'] = part
-                    elif part in ['180', '360']:
-                        params['angle'] = int(part)
-            except (ValueError, IndexError) as e:
-                print(f"Error parsing model parameters: {e}")
-                print("Using default parameters")
+        try:
+            # Extract parameters using regex patterns
+            import re
+            
+            # Extract cell size (_c4_)
+            cell_match = re.search(r'_c(\d+)_', model_name)
+            if cell_match:
+                params['cell_size'] = int(cell_match.group(1))
+            
+            # Extract block size (_b32_)
+            block_match = re.search(r'_b(\d+)_', model_name)
+            if block_match:
+                params['block_size'] = int(block_match.group(1))
+            
+            # Extract number of bins (_n9_)
+            bins_match = re.search(r'_n(\d+)_', model_name)
+            if bins_match:
+                params['num_bins'] = int(bins_match.group(1))
+            
+            # Extract block stride (_s1_)
+            stride_match = re.search(r'_s(\d+)_', model_name)
+            if stride_match:
+                params['block_stride'] = int(stride_match.group(1))
+            
+            # Extract angle (180 or 360)
+            if '_180' in model_name:
+                params['angle'] = 180
+            elif '_360' in model_name:
+                params['angle'] = 360
+            
+            print(f"Extracted HOG parameters from model name:")
+            print(f"  Cell size: {params['cell_size']}")
+            print(f"  Block size: {params['block_size']}")
+            print(f"  Number of bins: {params['num_bins']}")
+            print(f"  Block stride: {params['block_stride']}")
+            print(f"  Angle range: {params['angle']}")
+            
+        except Exception as e:
+            print(f"Error parsing model parameters: {e}")
+            print("Using default parameters")
         
         return params
 
