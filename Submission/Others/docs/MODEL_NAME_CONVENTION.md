@@ -20,7 +20,7 @@ Where:
   - `u`: Unperfect (ambiguous or lower quality)
   - `pp`: Perfect+ (extended set that may include some ambiguous cases)
   - `pat`: Patches (extracted from larger images)
-- `:`: Separator indicating different sources/types within the same category
+- `-`: Separator indicating different sources/types within the same category
 
 Examples:
 - `PETA_INRIA_h250p_nh250pp`: 250 perfect human samples with 250 perfect+ non-human samples

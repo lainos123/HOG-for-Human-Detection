@@ -57,7 +57,7 @@ The dataset names follow this format: `SOURCE_h[COUNT][TYPE]_nh[COUNT][TYPE]` wh
   - `u`: Unperfect (ambiguous or lower quality)
   - `pp`: Perfect+ (extended set that may include some ambiguous cases)
   - `pat`: Patches (extracted from larger images)
-- `:`: Separator indicating different sources/types within the same category
+- `-`: Separator indicating different sources/types within the same category
 
 ### Training Configurations
 - **PETA_INRIA_h250p_nh250pp**: 250 perfect human samples with 250 perfect+ non-human samples
@@ -72,12 +72,12 @@ The dataset names follow this format: `SOURCE_h[COUNT][TYPE]_nh[COUNT][TYPE]` wh
 Three test sets of varying size and quality, created by randomly selecting images from source datasets with a fixed random seed (4402) for reproducibility:
 
 - **perfect_100**: 100 high-quality test samples
-  - 50 human samples from PETA
-  - 50 non-human samples from INRIA_non_human_perfect_501
-
-- **perfect_200**: 200 high-quality test samples
   - 100 human samples from PETA
   - 100 non-human samples from INRIA_non_human_perfect_501
+
+- **perfect_200**: 200 high-quality test samples
+  - 200 human samples from PETA
+  - 200 non-human samples from INRIA_non_human_perfect_501
 
 - **unperfect_200**: 200 test samples including some lower-quality examples
   - 150 human samples from PETA + 50 from INRIA_human_unperfect_301
