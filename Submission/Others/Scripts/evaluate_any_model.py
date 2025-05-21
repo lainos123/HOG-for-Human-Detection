@@ -291,9 +291,18 @@ def evaluate_model(model_suffix, test_dataset_name, hog_params=None, return_pred
     ax_det.legend(loc="upper right")
     
     # Add a title to the metrics figure
-    fig_metrics.suptitle(f'HOG-SVM Model Performance Metrics - Model: {model_suffix}', fontsize=16)
+    fig_metrics.suptitle(f'HOG-SVM Model Performance Metrics - Model: {model_suffix} - Test Set: {test_dataset_name}', fontsize=16)
     fig_metrics.tight_layout()
     fig_metrics.subplots_adjust(top=0.9)  # Make room for the suptitle
+    
+    # Create output directory if it doesn't exist
+    output_dir = base_path  / "notebooks" / "outputs"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Save the metrics figure
+    metrics_filename = output_dir / f"evaluate_{model_suffix}_{test_dataset_name}.png"
+    plt.savefig(metrics_filename)
+    print(f"\nSaved metrics plot to: {metrics_filename}")
     plt.show()
     
     # Find misclassified images
@@ -351,9 +360,14 @@ def evaluate_model(model_suffix, test_dataset_name, hog_params=None, return_pred
                 ax.set_yticks([])
         
         # Add a title to the misclassified images figure
-        fig_misclass.suptitle(f'Misclassified Examples ({len(misclassified_indices)} total)', fontsize=16)
+        fig_misclass.suptitle(f'Misclassified Examples ({len(misclassified_indices)} total) - Model: {model_suffix} - Test Set: {test_dataset_name}', fontsize=16)
         fig_misclass.tight_layout()
         fig_misclass.subplots_adjust(top=0.9)  # Make room for the suptitle
+        
+        # Save the misclassified images figure
+        misclass_filename = output_dir / f"evaluate_{model_suffix}_{test_dataset_name}_misclassified.png"
+        plt.savefig(misclass_filename)
+        print(f"Saved misclassified images plot to: {misclass_filename}")
         plt.show()
     else:
         print("No misclassified images found!")
