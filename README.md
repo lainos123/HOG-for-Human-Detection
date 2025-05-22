@@ -7,7 +7,7 @@ This repository contains a human detection system using Histogram of Oriented Gr
 We've developed a system that extracts HOG features from images and uses an SVM to classify them as either human or non-human. The project implements a complete pipeline from data preparation to feature extraction, model training, and evaluation through a graphical user interface.
 
 ## Setup
-> ❗ **If you don’t have Conda installed**, download and install **Miniconda** (recommended) from:  
+> ❗ **If you don't have Conda installed**, download and install **Miniconda** (recommended) from:  
 > https://docs.conda.io/en/latest/miniconda.html  
 > This gives you access to `conda` without the full Anaconda package.
 
@@ -38,6 +38,10 @@ The GUI allows you to test our model on any image. You can:
 - Save test results to .xlsx
 - See confidence scores for each classification
 - Visualise the HOG features extracted from the image
+
+<div align="center">
+  <img src="Submission/Others/example_images/GUI.png" alt="GUI in action" width="50%">
+</div>
 
 ## Final Model
 
@@ -77,6 +81,11 @@ The model achieves:
 ## Note
 
 Only the `Submission` folder was included in the final project submission. It contains a standalone version of the application with the final model and sample images for testing.
+
+> **Repository Note:**  
+> This is the second version of this repository. The original repository encountered issues with large file storage (Git LFS) when attempting to upload models and data.  
+> To view the full commit history and earlier development, please visit:  
+> [https://github.com/coffeemartin/HOG-for-Human-Detection](https://github.com/coffeemartin/HOG-for-Human-Detection)
 
 ## Generating Features and Models
 

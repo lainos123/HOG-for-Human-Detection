@@ -8,7 +8,7 @@ We've developed a system that extracts HOG features from images and uses an SVM 
 
 ## Setup
 
-> ❗ **If you don’t have Conda installed**, download and install **Miniconda** (recommended) from:  
+> ❗ **If you don't have Conda installed**, download and install **Miniconda** (recommended) from:  
 > https://docs.conda.io/en/latest/miniconda.html  
 > This gives you access to `conda` without the full Anaconda package.
 
@@ -24,6 +24,10 @@ conda activate cits4402_project_submission_env
 # Run the GUI
 python GUI.py
 ```
+
+<div align="center">
+  <img src="Others/example_images/GUI.png" alt="GUI in action" width="50%">
+</div>
 
 ## GUI Features
 
@@ -151,10 +155,10 @@ The complete project repository includes additional resources:
 
 To access the full repository:
 ```bash
-git clone https://github.com/coffeemartin/HOG-for-Human-Detection
+git clone https://github.com/lainos123/HOG-for-Human-Detection
 ```
 
-Visit [https://github.com/coffeemartin/HOG-for-Human-Detection](https://github.com/coffeemartin/HOG-for-Human-Detection) for more details and the comprehensive README.
+Visit [https://github.com/lainos123/HOG-for-Human-Detection](https://github.com/lainos123/HOG-for-Human-Detection) for more details and the comprehensive README.
 
 ## Contributors
 
