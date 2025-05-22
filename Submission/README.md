@@ -104,45 +104,67 @@ Our datasets were carefully constructed from two main sources:
 
 All datasets were created using a fixed random seed (4402) for reproducibility, and we ensured no overlap between training and testing sets.
 
+## Custom Pipeline: Feature Extraction, Training, and Evaluation
+
+Easily build and test your own pipeline using the provided scripts:
+
+1. **Extract HOG Features:**
+  - Run `extract_HOG.py` to extract features from any dataset with custom parameters.
+  - Features are saved in `Features/`.
+
+  ![Extract](Others/example_images/extract_custom_features.png)
+
+2. **Train SVM Model:**
+  - Run `train_SVM.py` to train on any set of features.
+  - Models are saved in `Models/`.
+
+  ![Train](Others/example_images/train_custom_model.png)
+
+3. **Evaluate Model:**
+  - Run `evaluate_any_model.py` to test any model on any test set.
+  - View results and metrics interactively.
+  
+   ![Evaluate](Others/example_images/evaluate_any_model.png)
+
+This modular workflow lets you experiment with any combination of datasets, features, and models.
+
 ## Submission Structure
 
-The submission folder contains the following files:
-- `GUI.py`: The main application with a graphical user interface for testing the model
-- `Others/`: Supporting files including:
-  - `Scripts/`: Core functionality scripts:
-    - `ablation.py`: HOG parameter ablation study
-    - `create_non_human_data.py`: INRIA non-human dataset creation
-    - `create_test_data.py`: Test dataset creation
-    - `create_train_data.py`: Training dataset creation
-    - `evaluate_any_model.py`: Individual model testing
-    - `evaluate_final_model.py`: Final model evaluation
-    - `extract_HOG.py`: HOG feature extraction
-    - `save_predictions.py`: GUI prediction saving
-    - `test_image.py`: Single image testing
-    - `train_SVM.py`: SVM model training
-  - `notebooks/`: Development notebooks:
-    - `ablation.ipynb`: HOG parameter ablation studies
-    - `test_all_models.ipynb`: Model evaluation and selection
-    - `archive/`: Historical development notebooks
-      - `create_negatives_INRIA.ipynb`: Design of non-human extraction
-    - `outputs/`: Generated analysis plots and results from from notebooks
-  - `docs/`: Documentation files:
-    - `DATA_OVERVIEW.md`: Description of dataset organisation
-    - `MODEL_NAME_CONVENTION.md`: Explanation of model naming scheme
-  - `Final Dataset/`: Contains the final training and testing datasets:
-    - `Test/`: Test datasets
-      - `human_test/`
-      - `non_human_test/`
-    - `Train/`
-      - `human_train/`
-      - `non_human_train/`
-  - `Final Model/`: Contains the final trained model and features:
-    - `X_train_final_train_c8_b16_n9_s1_default_180.npy`: Training features
-    - `y_train_final_train_c8_b16_n9_s1_default_180.npy`: Training labels
-    - `svm_hog_classifier_final_train_c8_b16_n9_s1_default_180.joblib`: Trained SVM model
-- `Testing Images/`: Sample images for testing the GUI
-- `Report.ipynb`: Final Report
+The submission folder contains the following structure:
+```
+.
+├── GUI.py                      # Main application with GUI interface for testing the model
+├── Others/
+│   ├── Final Model/            # Contains the trained SVM model with optimal parameters
+│   │   └── svm_hog_classifier_PETA_INRIA_h250p_nh250pp_c4_b32_n9_s1_180.joblib
+│   ├── Scripts/                # Core functionality scripts for model development and testing
+│   │   ├── create_non_human_data.py    # Creates non-human dataset from INRIA by extracting regions without humans
+│   │   ├── create_test_data.py         # Generates test datasets with varying quality and composition
+│   │   ├── create_train_data.py        # Prepares training datasets with different sample compositions
+│   │   ├── evaluate_any_model.py       # Evaluates performance of any trained model
+│   │   ├── extract_HOG.py              # Extracts HOG features from images using specified parameters
+│   │   ├── save_predictions.py         # Saves classification results from GUI to predictions.xlsx
+│   │   ├── test_image.py               # Tests single image classification with confidence scores
+│   │   └── train_SVM.py                # Trains SVM classifier with specified parameters
+│   ├── docs/                   # Documentation files explaining project organisation
+│   │   ├── DATA_OVERVIEW.md            # Detailed description of dataset organisation and sources
+│   │   ├── MODEL_NAME_CONVENTION.md    # Explanation of model naming scheme and parameters
+│   │   └── Report.md                   # Comprehensive project report
+│   ├── example_images/         # Example images used in report
+│   └── notebooks/             # Development notebooks for analysis and experimentation
+│       ├── ablation.ipynb              # HOG parameter ablation studies - detailed analysis of parameter combinations
+│       ├── archive/                    # Historical development notebooks
+│       │   ├── Franco_HOG_SVM.ipynb    # Initial HOG and SVM implementation by Franco
+│       │   ├── create_negatives_INRIA.ipynb  # Design of non-human extraction methodology
+│       │   └── phase_2_laine.ipynb     # Initial HOG and SVM implementation by Laine
+│       ├── outputs/                    # Generated analysis plots and results
+│       └── test_all_models.ipynb       # Model evaluation - finding optimal training set composition
+├── README.md                  # This file
+├── Report.pdf                 # Final project report with detailed analysis
+├── Testing Images/            # Sample images for testing the GUI interface
+└── environment.yml            # Conda environment configuration with required dependencies
 
+```
 
 ## Full Repository
 

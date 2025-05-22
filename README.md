@@ -87,86 +87,67 @@ Only the `Submission` folder was included in the final project submission. It co
 > To view the full commit history and earlier development, please visit:  
 > [https://github.com/coffeemartin/HOG-for-Human-Detection](https://github.com/coffeemartin/HOG-for-Human-Detection)
 
-## Generating Features and Models
+## Custom Pipeline: Feature Extraction, Training, and Evaluation
 
-Due to storage limitations, the `Features/` and `Models/` directories are empty in this repository. To generate your own features and models, follow these steps:
+Easily build and test your own pipeline using the provided scripts:
 
-1. **Generate HOG Features**:
-   ```bash
-   cd Submission/Others/Scripts
-   python extract_HOG.py
-   ```
-   This will prompt you to:
-   - Select a dataset to process
-   - Choose HOG parameters
-   - Optionally save as final model features
+1. **Extract HOG Features:**
+  - Run `extract_HOG.py` to extract features from any dataset with custom parameters.
+  - Features are saved in `Features/`.
 
-2. **Train SVM Models**:
-   ```bash
-   python train_SVM.py
-   ```
-   This will:
-   - Use the features generated in step 1
-   - Train an SVM classifier
-   - Save the model with parameters in the filename
+  ![Extract](Submission/Others/example_images/extract_custom_features.png)
 
-3. **Evaluate Models**:
-   ```bash
-   python evaluate_any_model.py
-   ```
-   This allows you to:
-   - Test any trained model
-   - Evaluate performance on different test sets
-   - View detailed metrics and visualizations
+2. **Train SVM Model:**
+  - Run `train_SVM.py` to train on any set of features.
+  - Models are saved in `Models/`.
 
-4. **Run Ablation Study**:
-   ```bash
-   python ablation.py
-   ```
-   This will:
-   - Test different HOG parameter combinations
-   - Compare performance across test sets
-   - Help identify optimal parameters
+  ![Train](Submission/Others/example_images/train_custom_model.png)
 
-## Repository Structure
+3. **Evaluate Model:**
+  - Run `evaluate_any_model.py` to test any model on any test set.
+  - View results and metrics interactively.
+
+   ![Evaluate](Submission/Others/example_images/evaluate_any_model.png)
+
+This modular workflow lets you experiment with any combination of datasets, features, and models.
+
+## Project Structure
+
 ```
-├── Datasets/
-│   ├── Raw/ # Source data
-│   │   ├── original/ # INRIA and PETA source datasets
-│   │   └── created/ # Processed subsets used for for test and train sets
-│   ├── Test/ # Testing datasets of varying quality and size
-│   └── Train/ # Training datasets with different compositions
-├── Features/ # Directory for pre-extracted HOG features (.npy files) - empty, generate using extract_HOG.py
-├── Models/ # Directory for trained SVM classifier models (.joblib files) - empty, generate using train_SVM.py
-├── Submission/ # Final submission folder with standalone application
-│   ├── GUI.py # Graphical user interface
-│   ├── Others/ # Supporting files
-│   │   └── Scripts/ # Core functionality scripts
-│   │       ├── ablation.py # HOG parameter ablation study script
-│   │       ├── create_non_human_data.py # INRIA_non_human_all dataset creation
-│   │       ├── create_test_data.py # Test dataset creation
-│   │       ├── create_train_data.py # Training dataset creation
-│   │       ├── evaluate_any_model.py # Testing an individaul model of choice
-│   │       ├── evaluate_final_model.py # Testing the final model
-│   │       ├── extract_HOG.py # HOG feature extraction
-│   │       ├── save_predictions.py # Save prediction results from GUI
-│   │       ├── test_image.py # Single image testing
-│   │       └── train_SVM.py # SVM model training
-│   ├── Testing Images/ # Sample images for GUI testing
-│   └── Report.ipynb # Submitted Report
-├── docs/
-│   ├── DATA_OVERVIEW.md # Description of dataset organisation
-│   └── MODEL_NAME_CONVENTION.md # Explanation of model naming scheme
-├── notebooks/
-│   ├── ablation.ipynb # HOG parameter ablation studies - explanation of the script
-│   ├── archive/ # Historical development notebooks
-│   │   ├── 00019_male_fore.jpg # image used for testing
-│   │   ├── Franco_HOG_SVM.ipynb # Franco's version of initial implementaiton of HOG  extraction and SVM training
-│   │   ├── create_negatives_INRIA.ipynb # Design of non_human extraction from INRIA
-│   │   └── phase_2_laine.ipynb # Laine's version of initial implementaiton of HOG extraction and SVM training
-│   ├── outputs/ # Generated analysis plots and results
-│   └── test_all_models.ipynb # Model evaluation - finding the best training set to uses for Final Model
-└── environment.yml # Conda environment configuration
+.
+├── Datasets/                    # All dataset directories
+│   ├── Raw/                    # Source data
+│   │   ├── created/           # Processed subsets for test and train sets
+│   │   └── original/          # INRIA and PETA source datasets
+│   ├── Test/                  # Testing datasets
+│   │   ├── perfect_100/       # 100 high-quality test samples
+│   │   ├── perfect_200/       # 200 high-quality test samples
+│   │   └── unperfect_200/     # 200 challenging test samples
+│   └── Train/                 # Training datasets with different compositions
+│       ├── PETA_INRIA_h250p_nh250pp/        # 250 perfect human + 250 perfect non-human
+│       ├── PETA_INRIA_h500p_nh500pp/        # 500 perfect human + 500 perfect non-human
+│       └── ... (other training set variations)
+├── Features/                   # Pre-extracted HOG features (.npy files)
+├── Models/                     # Trained SVM classifier models (.joblib files)
+├── Submission/                 # Final submission folder with standalone application
+│   ├── GUI.py                 # Main application with GUI interface
+│   ├── Others/                # Supporting files
+│   │   ├── Final Model/       # Selected best model
+│   │   ├── Scripts/           # Core functionality scripts
+│   │   ├── docs/              # Documentation files
+│   │   ├── example_images/    # Example images for report
+│   │   └── notebooks/         # Development notebooks
+│   ├── Testing Images/        # Sample images for GUI testing
+│   └── environment.yml        # Conda environment configuration
+├── docs/                      # Project documentation
+│   ├── DATA_OVERVIEW.md       # Dataset organisation details
+│   └── MODEL_NAME_CONVENTION.md # Model naming scheme
+├── notebooks/                 # Development notebooks
+│   ├── ablation.ipynb         # HOG parameter studies
+│   ├── archive/               # Historical development notebooks
+│   ├── outputs/               # Generated analysis plots and results
+│   └── test_all_models.ipynb  # Model evaluation
+└── environment.yml            # Main project environment configuration
 ```
 
 ## Contributors
