@@ -15,13 +15,13 @@ We've developed a system that extracts HOG features from images and uses an SVM 
 Once Conda is installed:
 
 ```bash
-# Create the Conda environment
+# Create the Conda environment (this might take a while)
 conda env create -f environment.yml
 
 # Activate the environment
 conda activate cits4402_project_submission_env
 
-# Run the GUI
+# Run the GUI (this will only have a delay on the first run)
 python GUI.py
 ```
 

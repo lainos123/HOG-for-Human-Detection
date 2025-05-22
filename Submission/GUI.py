@@ -195,12 +195,7 @@ class HumanDetectionGUI:
             elif '_360' in model_name:
                 params['angle'] = 360
             
-            print(f"Extracted HOG parameters from model name:")
-            print(f"  Cell size: {params['cell_size']}")
-            print(f"  Block size: {params['block_size']}")
-            print(f"  Number of bins: {params['num_bins']}")
-            print(f"  Block stride: {params['block_stride']}")
-            print(f"  Angle range: {params['angle']}")
+            print(f"\nExtracted HOG parameters from model {model_name}:")
             
         except Exception as e:
             print(f"Error parsing model parameters: {e}")
@@ -303,6 +298,7 @@ class HumanDetectionGUI:
         hog_params = self.extract_hog_params_from_model_name(self.model_path.name)
         
         # Call test_image with HOG parameters
+        print(f"Testing image {self.image_list[self.current_image_index]} on final SVM classifier using HOG parameters: \n {hog_params}")
         result = test_image(self.model_path, image_path, return_decision_value=False, hog_params=hog_params)
 
         if result == 1:
