@@ -29,13 +29,14 @@ The above pre-processing approach by extracting non-human regions nearby to huma
 
 All non-human images are in **JPG** format and resized to **64×128** pixels.
 
-\newpage
 
 ### 1.3 Testing/Validation Data
 Two balanced testing datasets were created, each containing:
 
 - 200 positive samples (human)
 - 200 negative samples (non-human)
+
+\newpage
 
 These two versions are:
 
@@ -47,7 +48,7 @@ These two versions are:
 
 <div align="center">
 
-| ![Perfect Human Example 1](Others/example_images/perfect_human_1.png) ![Perfect Human Example 2](Others/example_images/perfect_human_2.jpg) | ![Perfect Non-Human Example 1](Others/example_images/perfect_non_human_1.jpg) ![Perfect Non-Human Example 2](Others/example_images/perfect_non_human_2.jpg) |
+| ![Perfect Human Example 1](../example_images/perfect_human_1.png) ![Perfect Human Example 2](../example_images/perfect_human_2.jpg) | ![Perfect Non-Human Example 1](../example_images/perfect_non_human_1.jpg) ![Perfect Non-Human Example 2](../example_images/perfect_non_human_2.jpg) |
 |:---:|:---:|
 | *Figure 1: Examples of perfect human images* | *Figure 2: Examples of perfect non-human images* |
 
@@ -62,11 +63,15 @@ These two versions are:
 
 <div align="center">
 
-| ![Imperfect Human Example 1](Others/example_images/unperfect_human_1.jpg) ![Imperfect Human Example 2](Others/example_images/unperfect_human_2.jpg) | ![Imperfect Non-Human Example 1](Others/example_images/unperfect_non_human_1.jpg) ![Imperfect Non-Human Example 2](Others/example_images/unperfect_non_human_2.jpg) |
+| ![Imperfect Human Example 1](../example_images/unperfect_human_1.jpg) ![Imperfect Human Example 2](../example_images/unperfect_human_2.jpg) | ![Imperfect Non-Human Example 1](../example_images/unperfect_non_human_1.jpg) ![Imperfect Non-Human Example 2](../example_images/unperfect_non_human_2.jpg) |
 |:---:|:---:|
 | *Figure 3: Examples of imperfect human images* | *Figure 4: Examples of imperfect non-human images* |
 
 </div>
+
+#### Why Two Test Sets?
+To enable a meaningful ablation study, we created both a 'perfect' and an 'imperfect' test set. Our default-parameter model achieved 99.5% accuracy on the perfect dataset, meaning nearly all models in ablation would score near 100%, making it impossible to distinguish between them. The imperfect set was designed to be more challenging, ensuring enough variation in results to effectively compare and select the best model parameters
+
 
 \newpage
 
@@ -83,7 +88,7 @@ In this extended study:
 
 <div align="center">
 
-| ![ROC curves on perfect test set](Others/notebooks/outputs/roc_comparison_perfect_200.png) | ![ROC curves on imperfect test set](Others/notebooks/outputs/roc_comparison_unperfect_200.png) |
+| ![ROC curves on perfect test set](../notebooks/outputs/roc_comparison_perfect_200.png) | ![ROC curves on imperfect test set](../notebooks/outputs/roc_comparison_unperfect_200.png) |
 |:---:|:---:|
 | *Figure 5: ROC curves comparing different training configurations on the perfect test set* | *Figure 6: ROC curves comparing different training configurations on the imperfect test set* |
 
@@ -201,7 +206,7 @@ We examined the following 10 cell size and block size combinations:
 
 <div align="center">
 
-![](Others/notebooks/outputs/cell_block_ablation.png)
+![](../notebooks/outputs/cell_block_ablation.png)
 
 *Figure 8: Performance comparison of different cell size and block size combinations*
 
@@ -251,7 +256,7 @@ We examined the following 9 bin size and orientation angle combinations:
 
 <div align="center">
 
-![](Others/notebooks/outputs/bin_angle_ablation.png)
+![](../notebooks/outputs/bin_angle_ablation.png)
 
 *Figure 9: Performance comparison of different bin size and orientation angle combinations*
 
@@ -314,13 +319,13 @@ The following results illustrate the performance of the final model using both t
 
 - Perfect Test set: **2 misclassified**
 
-  ![](Others/notebooks/outputs/evaluate__PETA_INRIA_h250p_nh250pp_c8_b16_n9_s1_default_180_perfect_200.png)
+  ![](../notebooks/outputs/evaluate__PETA_INRIA_h250p_nh250pp_c8_b16_n9_s1_default_180_perfect_200.png)
   
   *Figure 10: Default HOG parameters – Perfect test set*
 
 - Imperfect Test set: **49 misclassified, AUC = 0.92**
 
-  ![](Others/notebooks/outputs/evaluate__PETA_INRIA_h250p_nh250pp_c8_b16_n9_s1_default_180_unperfect_200.png)
+  ![](../notebooks/outputs/evaluate__PETA_INRIA_h250p_nh250pp_c8_b16_n9_s1_default_180_unperfect_200.png)
   
   *Figure 11: Default HOG parameters – Imperfect test set*
 
@@ -330,13 +335,13 @@ The following results illustrate the performance of the final model using both t
 
 - Perfect Test set: **1 misclassified**
 
-  ![](Others/notebooks/outputs/evaluate__PETA_INRIA_h250p_nh250pp_c4_b32_n9_s1_180_perfect_200.png)
+  ![](../notebooks/outputs/evaluate__PETA_INRIA_h250p_nh250pp_c4_b32_n9_s1_180_perfect_200.png)
   
   *Figure 12: Final HOG parameters – Perfect test set*
 
 - Imperfect Test Set: **49 misclassified, AUC = 0.93**
 
-  ![](Others/notebooks/outputs/evaluate__PETA_INRIA_h250p_nh250pp_c4_b32_n9_s1_180_unperfect_200.png)
+  ![](../notebooks/outputs/evaluate__PETA_INRIA_h250p_nh250pp_c4_b32_n9_s1_180_unperfect_200.png)
   
   *Figure 13: Final HOG parameters – Imperfect test set*
 
